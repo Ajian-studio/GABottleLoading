@@ -951,6 +951,10 @@ public class BottleLoadingView extends View {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
+                if (mRunnableList != null) {
+                    mRunnableList.remove(this);
+                }
+
                 final WaterDrop waterDrop;
                 if (!mWaterDropWaitList.isEmpty()) {
                     waterDrop = mWaterDropWaitList.remove(0);
@@ -964,7 +968,7 @@ public class BottleLoadingView extends View {
                 float endValue = dropTotalDisRatio /
                         (dropRadiusRatio * WATER_DROP_LEAVE_WATER_TOTAL_DISTANCE_TO_DROP_RADIUS);
 
-                ValueAnimator dropUp = ValueAnimator.ofFloat(0, endValue);
+                final ValueAnimator dropUp = ValueAnimator.ofFloat(0, endValue);
                 dropUp.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                     @Override
                     public void onAnimationUpdate(ValueAnimator animation) {
@@ -980,7 +984,7 @@ public class BottleLoadingView extends View {
                 dropUp.setDuration(totalTime / 2);
                 mAnimatorList.add(dropUp);
 
-                ValueAnimator dropDown = ValueAnimator.ofFloat(endValue, 0);
+                final ValueAnimator dropDown = ValueAnimator.ofFloat(endValue, 0);
                 dropDown.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                     @Override
                     public void onAnimationUpdate(ValueAnimator animation) {
@@ -996,9 +1000,9 @@ public class BottleLoadingView extends View {
                 dropDown.setDuration(totalTime / 2);
                 mAnimatorList.add(dropDown);
 
-                AnimatorSet dropaAnimatorSet = new AnimatorSet();
-                dropaAnimatorSet.playSequentially(dropUp, dropDown);
-                dropaAnimatorSet.addListener(new AnimatorListenerAdapter() {
+                final AnimatorSet dropAnimatorSet = new AnimatorSet();
+                dropAnimatorSet.playSequentially(dropUp, dropDown);
+                dropAnimatorSet.addListener(new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationEnd(Animator animation) {
                         super.onAnimationEnd(animation);
@@ -1006,8 +1010,19 @@ public class BottleLoadingView extends View {
                         mWaterDropWaitList.add(waterDrop);
                     }
                 });
-                mAnimatorList.add(dropaAnimatorSet);
-                dropaAnimatorSet.start();
+                mAnimatorList.add(dropAnimatorSet);
+                dropAnimatorSet.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        super.onAnimationEnd(animation);
+                        if (mAnimatorList != null) {
+                            mAnimatorList.remove(dropUp);
+                            mAnimatorList.remove(dropDown);
+                            mAnimatorList.remove(dropAnimatorSet);
+                        }
+                    }
+                });
+                dropAnimatorSet.start();
             }
         };
 
