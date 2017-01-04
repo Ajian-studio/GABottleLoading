@@ -18,20 +18,20 @@
         android:layout_weight="1"
         android:orientation="horizontal">
 
-        <com.gastudio.gabottleloading.library.BottleLoadingView
+        <com.gastudio.gabottleloading.library.GABottleLoadingView
             android:id="@+id/bottle_view_small"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
-        <com.gastudio.gabottleloading.library.BottleLoadingView
+        <com.gastudio.gabottleloading.library.GABottleLoadingView
             android:id="@+id/bottle_view_middle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2" />
     </LinearLayout>
 
-    <com.gastudio.gabottleloading.library.BottleLoadingView
+    <com.gastudio.gabottleloading.library.GABottleLoadingView
         android:id="@+id/bottle_view_big"
         android:layout_width="match_parent"
         android:layout_height="0dp"

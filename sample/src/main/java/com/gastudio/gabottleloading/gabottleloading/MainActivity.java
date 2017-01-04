@@ -24,7 +24,7 @@ import android.os.Bundle;
  * qq:1935400187
  * 技术交流qq群:277582728
  */
-import com.gastudio.gabottleloading.library.BottleLoadingView;
+import com.gastudio.gabottleloading.library.GABottleLoadingView;
 
 public class MainActivity extends Activity {
 
@@ -37,8 +37,8 @@ public class MainActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        ((BottleLoadingView) findViewById(R.id.bottle_view_small)).performAnimation();
-        ((BottleLoadingView) findViewById(R.id.bottle_view_middle)).performAnimation();
-        ((BottleLoadingView) findViewById(R.id.bottle_view_big)).performAnimation();
+        ((GABottleLoadingView) findViewById(R.id.bottle_view_small)).performAnimation();
+        ((GABottleLoadingView) findViewById(R.id.bottle_view_middle)).performAnimation();
+        ((GABottleLoadingView) findViewById(R.id.bottle_view_big)).performAnimation();
     }
 }

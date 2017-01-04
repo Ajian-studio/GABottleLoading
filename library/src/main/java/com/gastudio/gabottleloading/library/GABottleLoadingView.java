@@ -50,7 +50,7 @@ import java.util.List;
  * 技术交流qq群:277582728
  */
 
-public class BottleLoadingView extends View {
+public class GABottleLoadingView extends View {
 
     private class PointWithAngle {
         public int x;
@@ -268,20 +268,20 @@ public class BottleLoadingView extends View {
     private int mDebugPointRadius;
     private Paint mDebugPaint;
 
-    public BottleLoadingView(Context context) {
+    public GABottleLoadingView(Context context) {
         this(context, null);
     }
 
-    public BottleLoadingView(Context context, AttributeSet attrs) {
+    public GABottleLoadingView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public BottleLoadingView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public GABottleLoadingView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         TypedArray typedArray = context.obtainStyledAttributes(attrs,
-                R.styleable.BottleLoadingView, defStyleAttr, 0);
-        mBottleColor = typedArray.getColor(R.styleable.BottleLoadingView_bottle_color, DEFAULT_BOTTLE_COLOR);
-        mWaterColor = typedArray.getColor(R.styleable.BottleLoadingView_water_color, DEFAULT_WATER_COLOR);
+                R.styleable.GABottleLoadingView, defStyleAttr, 0);
+        mBottleColor = typedArray.getColor(R.styleable.GABottleLoadingView_bottle_color, DEFAULT_BOTTLE_COLOR);
+        mWaterColor = typedArray.getColor(R.styleable.GABottleLoadingView_water_color, DEFAULT_WATER_COLOR);
         init();
     }
 

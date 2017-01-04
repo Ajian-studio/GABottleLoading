@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="BottleLoadingView">
+    <declare-styleable name="GABottleLoadingView">
 
         <attr name="bottle_color" format="color" />
         <attr name="water_color" format="color" />
