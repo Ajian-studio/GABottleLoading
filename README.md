@@ -1,6 +1,6 @@
 # GABottleLoading
 
-## [中文文档](https://github.com/Ajian-studio/GABottleLoadingView/blob/master/README_CN.md)
+## [中文文档](https://github.com/Ajian-studio/GABottleLoading/blob/master/README_CN.md)
 
 ### 1 Creative prototype：
 
